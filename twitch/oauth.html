@@ -1,7 +1,8 @@
 If this page has not redirected automatically, click <a href ="#" onclick="redirect()">here</a>
 <script>
+	const query = window.location.search;
+	console.log(query)
 	function redirect() {
-		window.location.href = "http:127.0.0.1:3000/" + window.location.search;
+		window.location.replace("http:127.0.0.1:3000/" + query);
 	}
-	redirect()
 </script>
