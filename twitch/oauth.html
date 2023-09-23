@@ -1,11 +1,24 @@
-If this page has not redirected automatically, click <a href ="#" onclick="redirect()">here</a>
-<script>
-	const url = window.location.href;
-	console.log(url)
-	const hash = url.split("#")[1]
-	console.log(hash)
-	function redirect() {
-		window.location.replace("http:127.0.0.1:51998/" + hash);
-	}
-	redirect()
-</script>
+<!doctype html>
+<html lang="en">
+<head>
+	<title>Oauth Redirect</title>
+	<link rel="stylesheet" href="/css/cascadia-code.css">
+	<style>
+		* { font-family: 'Cascadia Code', sans-serif; line-height: 1.2; margin: 0; }
+	</style>
+</head>
+<body>
+	If this page has not redirected automatically, click <a href ="#" onclick="redirect()">here</a>
+	<script>
+		const url = window.location.href;
+		console.log(url)
+		const hash = url.split("#")[1]
+		console.log(hash)
+		function redirect() {
+			window.location.replace("http:127.0.0.1:51998/" + hash);
+		}
+		redirect()
+	</script>
+</body>
+</html>
+
