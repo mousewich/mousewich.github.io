@@ -1,5 +1,120 @@
-html {
-	font-family: 'Cascadia Code', sans-serif;
-	height: 100%;
-	width: 100%;
+:root {
+	--background-color-hover:#959595;
 }
+:root, html[data-theme='light'] {
+	--background-color: #ffffff;
+	--text-color: #000000;
+	--svg-filter: brightness(0);
+}
+html[data-theme='dark'] {
+	--background-color: #2b2b2b;
+	--text-color: #ffffff;
+	--svg-filter: brightness(0) invert();
+}
+
+*, html {
+	font-family: 'Cascadia Code', sans-serif;
+	color:var(--text-color);
+}
+body {
+	margin:0;
+	background-color:var(--background-color);
+}
+header {
+	top:0;
+	position:fixed;
+	width:100%;
+	z-index:1;
+}
+footer {
+	text-align:center;
+	padding-top:24px;
+	padding-bottom:24px;
+	cursor:default;
+}
+.content {
+	padding:32px 24px 16px 24px;
+}
+
+.show { display:block!important; }
+.hide { display:none; }
+@media (max-width:570px) { .navBar .navButton { display:none!important; } }
+@media (min-width:571px) { .hide-large { display:none!important; } }
+[data-theme='light'] .display-light, [data-theme='dark'] .display-dark {
+	display:block;
+}
+[data-theme='dark'] .display-light, [data-theme='light'] .display-dark {
+	display:none;
+}
+.display-none { display:none; }
+
+.navBar {
+	text-align:left;
+	font-size:18pt;
+	width:100%;
+	background-color:var(--background-color);
+	overflow:hidden;
+}
+.navSticker, .navButton {
+	text-align:center;
+	text-decoration:none;
+	background-color:var(--background-color);
+	padding:12px 24px;
+}
+.navSticker:hover, .navButton:hover {
+	background-color:var(--background-color-hover);
+}
+.navBar .navButton, .navSticker {
+	float:left;
+	width:auto;
+	border:none;
+	display:block;
+	outline:0;
+	white-space:normal;
+}
+.navDropdown {
+	font-size:18pt;
+	display:none;
+}
+.navDropdown .navButton {
+	width:100%;
+	display:block;
+	text-align:left;
+	border:none;
+	white-space:normal;
+	float:none;
+	outline:0;
+}
+
+.hamburgerMenu {
+	font-size:18pt;
+	text-decoration:none;
+	padding:12px 24px;
+	float:right!important;
+	cursor:pointer
+}
+.darkModeToggle {
+	font-size:18pt;
+	display:flex;
+	padding:12px 24px;
+	float:right!important;
+	cursor:pointer;
+	border-style: hidden;
+}
+
+.social-icon {
+	text-decoration:none;
+	cursor:pointer;
+}
+.social-icon img {
+	height:24px;
+	width:24px;
+}
+.social-icon img, .display-dark img, .display-light img {
+	filter:var(--svg-filter);
+}
+.social-icon img:hover {
+	filter:none;
+}
+
+

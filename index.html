@@ -6,15 +6,45 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="/css/cascadia-code.css">
 	<link rel="stylesheet" href="/css/styles.css">
-	<style>
-		* { line-height: 1.2; margin: 0; }
-		html { display: table; text-align: center; }
-		body { display: table-cell; vertical-align: middle; margin: 2em auto; }
-		h1 { font-size: 2em; font-weight: 400; }
-		p { margin: 0 auto; }
-	</style>
+	<script src="js/common.js"></script>
 </head>
-	<body>
-		<h1>Hello, World!</h1>
-	</body>
+<body>
+<!-- Header -->
+<header id="header">
+	<div class="navBar">
+		<div class="hamburgerMenu navSticker hide-large" onclick="ToggleNavDropdown()" title="Toggle Navigation Menu">≡</div>
+		<button id="darkModeToggle" class="darkModeToggle navSticker" type="button" onclick="ToggleDarkMode()">
+			<span class="display-light display-none"> <img src="resources/icon/moon.svg" alt="A moon icon"> </span>
+			<span class="display-dark display-none"> <img src="resources/icon/sun.svg" alt="A sun icon"> </span>
+		</button>
+		<a href="index.html" class="navSticker">Home</a>
+		<a href="twitch.html" class="navButton">Twitch</a>
+		<a href="youtube.html" class="navButton">YouTube</a>
+		<a href="games.html" class="navButton">Games</a>
+	</div>
+	<!-- Navbar on small screens -->
+	<div id="navDropdown" class="navDropdown hide-large">
+		<a href="twitch.html" class="navButton">Twitch</a>
+		<a href="youtube.html" class="navButton">YouTube</a>
+		<a href="games.html" class="navButton">Games</a>
+	</div>
+</header>
+<!-- Content -->
+<div class="content" style="text-align:center">
+	<h1>Hello, World!</h1>
+	<p>Welcome to my website :)</p>
+	<p>- mousewich</p>
+</div>
+<!-- Footer -->
+<footer id="footer">
+	<a class="social-icon" href="twitch.html"><img src="resources/icon/twitch.svg" alt="Twitch glitch logo"></a>
+	<a class="social-icon" href="youtube.html"><img src="resources/icon/youtube.svg" alt="YouTube play button logo"></a>
+	<a class="social-icon" href="twitter.html"><img src="resources/icon/twitter.svg" alt="Twitter logo"></a>
+	<a class="social-icon" href="tumblr.html"><img src="resources/icon/tumblr.svg" alt="Tumblr t logo"></a>
+	<a class="social-icon" href="mailto:girlboss@mousewich.fun"><img src="resources/icon/email.svg" alt="An email icon"></a>
+	<p style="font-size:75%;">Copyright &copy<script>document.write(new Date().getFullYear().toString())</script> mousewich</p>
+</footer>
+</body>
 </html>
+<style>
+</style>

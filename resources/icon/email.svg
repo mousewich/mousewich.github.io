@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg xml:space="preserve" version="1.1" style="shape-rendering:geometricPrecision;text-rendering:geometricPrecision;image-rendering:optimizeQuality;" viewBox="0 0 383.94 329.15" xmlns="http://www.w3.org/2000/svg">
+<defs> <style type="text/css"> path { fill:#959595 } </style> </defs>
+	<g transform="translate(0,32.5)">
+		<path d="M 3.58,251.72 121.8,155.73 0,43.83 V 239.1 c 0,4.61 1.31,8.93 3.58,12.62 z"/>
+		<path d="m 262.29,155.58 118.18,95.96 c 2.2,-3.65 3.47,-7.9 3.47,-12.44 V 43.83 Z"/>
+		<path d="M 359.71,0 H 24.22 C 7.61,0 -0.86,18.49 11.18,29.58 l 170,156.19 c 6.26,5.75 15.31,5.75 21.57,0 C 259.46,133.67 315.99,81.75 372.76,29.58 384.82,18.5 376.33,0 359.71,0 Z"/>
+		<path d="m 365.5,262.62 -116.63,-94.7 -33.89,31.13 c -13.22,12.15 -32.8,12.15 -46.03,0 L 135.22,168.06 18.68,262.68 c 1.79,0.42 3.64,0.64 5.54,0.64 h 335.49 c 2,0 3.94,-0.24 5.79,-0.7 z"/>
+	</g>
+</svg>
