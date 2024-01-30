@@ -16,10 +16,7 @@
 <body>
 	<p>If this page has not redirected automatically, click <a href ="#" onclick="redirect()">here</a></p>
 	<script>
-		const url = window.location.href;
-		console.log(url)
-		const hash = url.split("#")[1]
-		console.log(hash)
+		const hash = window.location.href.split("#")[1];
 		function redirect() {
 			window.location.replace("http:127.0.0.1:51998/" + hash);
 		}
