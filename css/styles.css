@@ -117,6 +117,14 @@ footer {
 .social-icon img:hover {
 	filter:none;
 }
+.skill-icon {
+	text-decoration:none;
+	margin:4px;
+}
+.skill-icon img {
+	height:48px;
+	width:48px;
+}
 .copyright {
 	font-size:75%;
 }

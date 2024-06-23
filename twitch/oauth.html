@@ -17,9 +17,7 @@
 	<p>If this page has not redirected automatically, click <a href ="#" onclick="redirect()">here</a></p>
 	<script>
 		const hash = window.location.href.split("#")[1];
-		function redirect() {
-			window.location.replace("http:127.0.0.1:51998/" + hash);
-		}
+		function redirect() { window.location.replace("http:127.0.0.1:51998/" + hash); }
 		redirect()
 	</script>
 </body>

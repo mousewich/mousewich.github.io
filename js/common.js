@@ -12,13 +12,7 @@ function ToggleNavDropdown() {
 	ToggleHideShow(document.getElementById("navDropdown"));
 }
 function ToggleHideShow(x) {
-	if (x.className.indexOf(" show") === -1) {
-		x.className += " show";
-		console.log("showing")
-	}
-	else {
-		x.className = x.className.replace(" show", "");
-		console.log("hiding")
-	}
+	if (x.className.indexOf(" show") === -1) x.className += " show";
+	else x.className = x.className.replace(" show", "");
 }
 
