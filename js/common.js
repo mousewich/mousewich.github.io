@@ -16,3 +16,43 @@ function ToggleHideShow(x) {
 	else x.className = x.className.replace(" show", "");
 }
 
+function MakeGallery(id, items) {
+	if (items.length < 1) return;
+	let html = `<div class="commission-gallery"><div id="` + id + `" class="carousel slide">`
+	//Indicators
+	if (items.length > 1) {
+		html += `<ol class="carousel-indicators">
+		<li data-target="#\` + id + \`" data-slide-to="0" class="active"></li>`
+		for (let i = 1; i < items.length; i++) {
+			html += `<li data-target="#` + id + `" data-slide-to="` + i + `"`
+			if (i === 0) html += ` class="active"`
+			html += `></li>`
+		}
+		html += `</ol>`
+	}
+	//Wrapper for Slides
+	html += `<div class="carousel-inner">`
+	for (let i = 0; i < items.length; i++) {
+		html += `<div class="item`
+		if (i === 0) html += ` active`
+		html += `"><img src="` + items[i].src + `" alt="` + items[i].alt + `"`
+		if (items[i]['allowRightClick'] == null) {
+			html += ` oncontextmenu="return false;"`
+		}
+		html += `></div>`
+	}
+	html += `</div>`
+	//Left and Right Controls
+	if (items.length > 1) {
+		html += `<a class="left carousel-control" href="#` + id + `" data-slide="prev">
+				<img src="/resources/icon/chevron-left.svg" alt="A left-facing arrow icon">
+			</a>
+			<a class="right carousel-control" href="#` + id + `" data-slide="next">
+				<img src="/resources/icon/chevron-right.svg" alt="A right-facing arrow icon">
+			</a>`
+	}
+	html += `</div></div>`
+	document.write(html);
+	$("#" + id).carousel("pause")
+}
+
