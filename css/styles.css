@@ -1,5 +1,6 @@
 :root {
-	--background-color-hover:#959595;
+	--gray:#959595;
+	--svg-gray: invert() brightness(0.58);
 }
 :root, html[data-theme='light'] {
 	--background-color: #ffffff;
@@ -63,7 +64,7 @@ h1, h2, h3, h4 { text-align:center }
 	padding:12px 24px;
 }
 .navSticker:hover, .navButton:hover {
-	background-color:var(--background-color-hover);
+	background-color:var(--gray);
 }
 .navBar .navButton, .navSticker {
 	float:left;
@@ -143,7 +144,7 @@ h1, h2, h3, h4 { text-align:center }
 	padding:16px;
 	display:flex;
 	border: 8px solid;
-	border-color:var(--background-color-hover);
+	border-color:var(--gray);
 	border-radius:16px;
 }
 .commission-gallery {
@@ -215,12 +216,7 @@ h1, h2, h3, h4 { text-align:center }
 	left: 0;
 	width: 15%;
 	font-size: 20px;
-	color: #fff;
 	text-align: center;
-	text-shadow: 0 1px 2px rgba(0, 0, 0, 0.6);
-	background-color: rgba(0, 0, 0, 0);
-	filter: alpha(opacity=50);
-	opacity: 0.5;
 }
 .carousel-control.left {
 }
@@ -236,7 +232,7 @@ h1, h2, h3, h4 { text-align:center }
 	z-index: 5;
 	display: inline-block;
 	margin-top: -10px;
-	filter:brightness(0)  invert();
+	filter:var(--svg-gray);
 }
 .carousel .left img {
 	left: 50%;
@@ -245,14 +241,6 @@ h1, h2, h3, h4 { text-align:center }
 .carousel .right img {
 	right: 50%;
 	margin-right: -10px;
-}
-.carousel-control:hover,
-.carousel-control:focus {
-	color: #fff;
-	text-decoration: none;
-	outline: 0;
-	filter: alpha(opacity=90);
-	opacity: 0.9;
 }
 .carousel-indicators {
 	position: absolute;
@@ -272,14 +260,14 @@ h1, h2, h3, h4 { text-align:center }
 	margin: 1px;
 	text-indent: -999px;
 	cursor: pointer;
-	background-color: #000;
-	background-color: rgba(0, 0, 0, 0);
-	border: 1px solid #fff;
+	background-color: var(--background-color);
+	border: 1px solid;
 	border-radius: 10px;
+	border-color: var(--gray);
 }
 .carousel-indicators .active {
 	width: 12px;
 	height: 12px;
 	margin: 0;
-	background-color: #fff;
+	background-color: var(--gray);
 }
