@@ -33,6 +33,11 @@ footer {
 	padding-bottom:24px;
 	cursor:default;
 }
+hr {
+	margin: 1em 0;
+	border: 2px solid;
+	border-color:var(--gray);
+}
 .content {
 	margin-top:53px;
 	padding:32px 24px 16px 24px;
@@ -130,13 +135,13 @@ h1, h2, h3, h4 { text-align:center }
 	font-size:75%;
 }
 
-.commission-showcase-group {
+.showcase-group {
 	display:flex;
 	align-items:center;
 	justify-content:center;
 	flex-wrap:wrap;
 }
-.commission-showcase {
+.showcase {
 	height:324px;
 	width:600px;
 	min-width:600px;
