@@ -135,6 +135,10 @@ h1, h2, h3, h4 { text-align:center }
 	font-size:75%;
 }
 
+.no-save-img {
+	pointer-events: none;
+}
+
 .showcase-group {
 	display:flex;
 	align-items:center;

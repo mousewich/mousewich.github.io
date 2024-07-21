@@ -37,7 +37,7 @@ function MakeGallery(id, items) {
 		if (i === 0) html += ` active`
 		html += `"><img src="` + items[i].src + `" alt="` + items[i].alt + `"`
 		if (items[i]['allowRightClick'] == null) {
-			html += ` oncontextmenu="return false;"`
+			html += ` class="no-save-img" oncontextmenu="return false;"`
 		}
 		html += `></div>`
 	}
