@@ -15,44 +15,83 @@ function ToggleHideShow(x) {
 	if (x.className.indexOf(" show") === -1) x.className += " show";
 	else x.className = x.className.replace(" show", "");
 }
-
 function MakeGallery(id, items) {
+	let parent = document.getElementById(id);
 	if (items.length < 1) return;
-	let html = `<div class="commission-gallery"><div id="` + id + `" class="carousel slide">`
 	//Indicators
 	if (items.length > 1) {
-		html += `<ol class="carousel-indicators">
-		<li data-target="#\` + id + \`" data-slide-to="0" class="active"></li>`
-		for (let i = 1; i < items.length; i++) {
-			html += `<li data-target="#` + id + `" data-slide-to="` + i + `"`
-			if (i === 0) html += ` class="active"`
-			html += `></li>`
+		let indicators = document.createElement("ol");
+		indicators.className = "carousel-indicators";
+		for (let i = 0; i < items.length; i++) {
+			let indicator = document.createElement("li");
+			indicator.setAttribute("data-target", "#" + id);
+			indicator.setAttribute("data-slide-to", "" + i);
+			if (i === 0) indicator.className = "active";
+			indicators.append(indicator);
 		}
-		html += `</ol>`
+		parent.append(indicators);
 	}
 	//Wrapper for Slides
-	html += `<div class="carousel-inner">`
+	let wrapper = document.createElement("div");
+	wrapper.className = "carousel-inner";
 	for (let i = 0; i < items.length; i++) {
-		html += `<div class="item`
-		if (i === 0) html += ` active`
-		html += `"><img src="` + items[i].src + `" alt="` + items[i].alt + `"`
+		let carouselItem = document.createElement("div");
+		carouselItem.className = "item";
+		if (i === 0) carouselItem.className += " active";
+		let img = document.createElement("img");
+		img.src = items[i].src;
+		img.alt = items[i].alt;
 		if (items[i]['allowRightClick'] == null) {
-			html += ` class="no-save-img" oncontextmenu="return false;"`
+			img.className = "no-save-img";
+			img.oncontextmenu = "return false;";
 		}
-		html += `></div>`
+		carouselItem.appendChild(img);
+		wrapper.appendChild(carouselItem);
 	}
-	html += `</div>`
+	parent.appendChild(wrapper);
 	//Left and Right Controls
 	if (items.length > 1) {
-		html += `<a class="left carousel-control" href="#` + id + `" data-slide="prev">
-				<img src="/resources/icon/chevron-left.svg" alt="A left-facing arrow icon">
-			</a>
-			<a class="right carousel-control" href="#` + id + `" data-slide="next">
-				<img src="/resources/icon/chevron-right.svg" alt="A right-facing arrow icon">
-			</a>`
+		//Left
+		let leftControl = document.createElement("a");
+		leftControl.className = "left carousel-control";
+		leftControl.href = "#" + id;
+		leftControl.setAttribute("data-slide", "prev");
+		let leftImg = document.createElement("img");
+		leftImg.src = "/resources/icon/chevron-left.svg";
+		leftImg.alt = "A left-facing arrow icon";
+		leftControl.appendChild(leftImg);
+		parent.appendChild(leftControl);
+		//Right
+		let rightControl = document.createElement("a");
+		rightControl.className = "right carousel-control";
+		rightControl.href = "#" + id;
+		rightControl.setAttribute("data-slide", "next");
+		let rightImg = document.createElement("img");
+		rightImg.src = "/resources/icon/chevron-right.svg";
+		rightImg.alt = "A right-facing arrow icon";
+		rightControl.appendChild(rightImg);
+		parent.appendChild(rightControl);
 	}
-	html += `</div></div>`
-	document.write(html);
 	$("#" + id).carousel("pause")
+}
+
+function ToggleBetween(checkbox, first, second) {
+	if (first == null) checkbox.checked = false;
+	let show = (element) => {
+		if (element.hasAttribute("hidden")) {
+			element.removeAttribute("hidden");
+		}
+	}
+	let hide = (element) => {
+		element.setAttribute("hidden", "hidden");
+	}
+	if (checkbox.checked) {
+		show(first);
+		hide(second);
+	}
+	else {
+		hide(first);
+		show(second);
+	}
 }
 

@@ -140,3 +140,6 @@
 	width:50%;
 	margin:10px 0;
 }
+.minecraft-font * {
+	font-family: Minecraft, sans-serif;
+}

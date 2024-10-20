@@ -1,14 +1,38 @@
 <!doctype html>
 <html lang="en">
 <head>
-	<meta charset="utf-8">
+	<!-- HTML Meta Tags -->
 	<title>Commissions</title>
+	<meta name="description" content="">
+	<!-- Open Graph Meta Tags -->
+	<meta property="og:title" content="Commissions">
+	<meta property="og:url" content="https://www.wich.fun/commission">
+	<meta property="og:type" content="website">
+	<meta property="og:description" content="">
+	<meta property="og:image" content="">
+	<!-- Twitter Meta Tags -->
+	<meta name="twitter:title" content="Commissions">
+	<meta property="twitter:url" content="https://www.wich.fun/commission">
+	<meta name="twitter:card" content="summary_large_image">
+	<meta property="twitter:domain" content="wich.fun">
+	<meta name="twitter:description" content="">
+	<meta name="twitter:image" content="">
+	<!-- Manifest -->
+	<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+	<link rel="manifest" href="/site.webmanifest">
+	<!-- Style and Scripts -->
+	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<script src="/js/jquery/jquery.js"></script>
-	<script src="/js/bootstrap/bootstrap.js"></script>
 	<link rel="stylesheet" href="/css/cascadia-code.css">
 	<link rel="stylesheet" href="/css/styles.css">
+	<link rel="stylesheet" href="/css/minecraft.css">
+	<script src="/js/jquery/jquery.js"></script>
+	<script src="/js/bootstrap/bootstrap.js"></script>
 	<script src="/js/common.js"></script>
+	<script src="/js/minecraft/minecraftgallery.js"></script>
+	<script src="js/minecraft/skinview3d/skinview3d.bundle.js"></script>
 </head>
 <body>
 <!-- Header -->
@@ -39,65 +63,81 @@
 	<h1>YCH Commissions</h1>
 	<div class="showcase-group">
 		<div class="showcase">
-			<script>
-				MakeGallery("emote-", [
-					{
-						src: "/resources/img/commission/emote/Emote%20Bases%20by%20Loumon.png",
-						alt: "",
-						allowRightClick: true
-					},
-					{
-						src: "/resources/img/commission/emote/laugh_AngelHunnyBunn.png",
-						alt: ""
-					},
-					{
-						src: "/resources/img/commission/emote/bleh_Kriber.png",
-						alt: ""
-					},
-					{
-						src: "/resources/img/commission/emote/smash_SintheticSkull.png",
-						alt: ""
-					},
-					{
-						src: "/resources/img/commission/emote/wifeless_DajzaDj.png",
-						alt: ""
-					},
-					{
-						src: "/resources/img/commission/emote/dead_Beanie_Birrd.png",
-						alt: ""
-					}
-				])
-			</script>
+			<div class="commission-gallery">
+				<div id="emote-" class="carousel slide">
+					<script>
+						MakeGallery("emote-", [
+							{
+								src: "/resources/img/commission/emote/Emote%20Bases%20by%20Loumon.png",
+								alt: "",
+								allowRightClick: true
+							},
+							{
+								src: "/resources/img/commission/emote/showcase_dovewich.gif",
+								alt: ""
+							},
+							{
+								src: "/resources/img/commission/emote/laugh_AngelHunnyBunn.png",
+								alt: ""
+							},
+							{
+								src: "/resources/img/commission/emote/bleh_Kriber.png",
+								alt: ""
+							},
+							{
+								src: "/resources/img/commission/emote/smash_SintheticSkull.png",
+								alt: ""
+							},
+							{
+								src: "/resources/img/commission/emote/wifeless_DajzaDj.png",
+								alt: ""
+							},
+							{
+								src: "/resources/img/commission/emote/dead_Beanie_Birrd.png",
+								alt: ""
+							}
+						])
+					</script>
+				</div>
+			</div>
 			<div class="commission-description">
 				<h2>Emotes</h2>
 				<ul>
 					<li>Base price: $25 USD
 						<ul>
-							<li>+$5 USD/frame for simple animated emotes (ex. 10A/B)</li>
+							<li>+$5-10 USD for animated emotes</li>
 							<li>Reduced price available for batch orders</li>
 						</ul>
 					</li>
 					<li>Static emotes delivered as .png files</li>
-					<li>Animated emotes delivered as .gif files</li>
+					<li>Animated emotes delivered as .png and .gif files</li>
 					<li>Canvas Size 1200 x 1200px</li>
 					<li>Using bases by <a href="https://ko-fi.com/takiimikiku">Loumon (@takiimikiku)</a></li>
 				</ul>
 			</div>
 		</div>
 		<div class="showcase">
-			<script>
-				MakeGallery("floofy-", [
-					{
-						src: "/resources/img/commission/floofy/Floofy%20Bases%20by%20mr-cactus.png",
-						alt: "",
-						allowRightClick: true
-					},
-					{
-						src: "/resources/img/commission/floofy/floofy_dovewich.gif",
-						alt: ""
-					}
-				])
-			</script>
+			<div class="commission-gallery">
+				<div id="floofy-" class="carousel slide">
+					<script>
+						MakeGallery("floofy-", [
+							{
+								src: "/resources/img/commission/floofy/Floofy%20Bases%20by%20mr-cactus.png",
+								alt: "",
+								allowRightClick: true
+							},
+							{
+								src: "/resources/img/commission/floofy/floofy_dovewich.gif",
+								alt: ""
+							},
+							{
+								src: "/resources/img/commission/floofy/floofy_mousewich.gif",
+								alt: ""
+							}
+						])
+					</script>
+				</div>
+			</div>
 			<div class="commission-description">
 				<h2>Floofy Reactive</h2>
 				<ul>
@@ -114,35 +154,48 @@
 			</div>
 		</div>
 		<div class="showcase">
-			<script>
-				MakeGallery("helltaker-", [
-					{
-						src: "/resources/img/commission/helltaker/helltaker_ych.gif",
-						alt: ""
-					},
-					{
-						src: "/resources/img/commission/helltaker/helltaker_RinaPumpkin.gif",
-						alt: ""
-					},
-					{
-						src: "/resources/img/commission/helltaker/helltaker_Cwstal.gif",
-						alt: ""
-					},
-					{
-						src: "/resources/img/commission/helltaker/helltaker_LilineraCh.gif",
-						alt: ""
-					},
-					{
-						src: "/resources/img/commission/helltaker/helltaker_Beanie_Birrd.gif",
-						alt: ""
-					}
-				])
-			</script>
+			<div class="commission-gallery">
+				<div id="helltaker-" class="carousel slide">
+					<script>
+						MakeGallery("helltaker-", [
+							{
+								src: "/resources/img/commission/helltaker/helltaker_ych.gif",
+								alt: ""
+							},
+							{
+								src: "/resources/img/commission/helltaker/helltaker_dovewich.gif",
+								alt: ""
+							},
+							{
+								src: "/resources/img/commission/helltaker/helltaker_RinaPumpkin.gif",
+								alt: ""
+							},
+							{
+								src: "/resources/img/commission/helltaker/helltaker_Cwstal.gif",
+								alt: ""
+							},
+							{
+								src: "/resources/img/commission/helltaker/helltaker_LilineraCh.gif",
+								alt: ""
+							},
+							{
+								src: "/resources/img/commission/helltaker/helltaker_Beanie_Birrd.gif",
+								alt: ""
+							}
+						])
+					</script>
+				</div>
+			</div>
 			<div class="commission-description">
 				<h2>Helltaker-Inspired Sprite</h2>
 				<ul>
 					<li>Base price: $40 USD</li>
-					<li>Delivered as an animated .gif file</li>
+					<li>Delivered as
+						<ul>
+							<li>1 .png file</li>
+							<li>1 animated .gif file</li>
+						</ul>
+					</li>
 					<li>Canvas Size 300 x 300px</li>
 				</ul>
 			</div>
@@ -151,14 +204,18 @@
 	<h1>Other Commissions</h1>
 	<div class="showcase-group">
 		<div class="showcase">
-			<script>
-				MakeGallery("pngtuber-", [
-					{
-						src: "/resources/img/commission/pngtuber/pngtuber_Beanie_Birrd.gif",
-						alt: ""
-					}
-				])
-			</script>
+			<div class="commission-gallery">
+				<div id="pngtuber-" class="carousel slide">
+					<script>
+						MakeGallery("pngtuber-", [
+							{
+								src: "/resources/img/commission/pngtuber/pngtuber_Beanie_Birrd.gif",
+								alt: ""
+							}
+						])
+					</script>
+				</div>
+			</div>
 			<div class="commission-description">
 				<h2>PNGTuber / Reactive Images</h2>
 				<ul>
@@ -170,6 +227,79 @@
 					<li>Delivered as .png files</li>
 					<li>Canvas Size varies</li>
 				</ul>
+			</div>
+		</div>
+		<div class="showcase" style="background-image:url('/resources/minecraft/bg.png');background-size:64px;image-rendering:pixelated">
+			<div class="commission-gallery">
+				<div id="minecraft-viewer" class="carousel slide" hidden="hidden">
+					<script>
+						MakeMinecraftSkinGallery("minecraft-viewer", [
+							{
+								"skin": "/resources/img/commission/minecraft_skin/skin_dovewich.png",
+								"slim": true
+							},
+							{
+								"skin": "/resources/img/commission/minecraft_skin/skin_mousewich.png",
+								"slim": true
+							},
+							"/resources/img/commission/minecraft_skin/skin_haven_smp_soleil.png",
+							"/resources/img/commission/minecraft_skin/skin_haven_smp_ferris.png",
+							"/resources/img/commission/minecraft_skin/skin_ryft_smp_gubby.png",
+							{
+								"skin": "/resources/img/commission/minecraft_skin/skin_ryft_smp_eldora.png",
+								"slim": true
+							}
+						])
+						MakeGallery
+					</script>
+				</div>
+				<div id="minecraft-rendered" class="carousel slide">
+					<script>
+						MakeGallery("minecraft-rendered", [
+							{
+								"src": "/resources/img/commission/minecraft_skin/render_dovewich.png",
+								"alt": ""
+							},
+							{
+								"src": "/resources/img/commission/minecraft_skin/render_mousewich.png",
+								"alt": ""
+							},
+							{
+								"src": "/resources/img/commission/minecraft_skin/render_haven_smp_soleil.png",
+								"alt": ""
+							},
+							{
+								"src": "/resources/img/commission/minecraft_skin/render_haven_smp_ferris.png",
+								"alt": ""
+							},
+							{
+								"src": "/resources/img/commission/minecraft_skin/render_ryft_smp_gubby.png",
+								"alt": ""
+							},
+							{
+								"src": "/resources/img/commission/minecraft_skin/render_ryft_smp_eldora.png",
+								"alt": ""
+							}
+						])
+					</script>
+				</div>
+			</div>
+			<div class="commission-description minecraft-font">
+				<h2>Minecraft Skins</h2>
+				<ul>
+					<li>Base Price: $20 USD
+						<ul>
+							<li>+$5 for custom Cape / Elytra</li>
+							<li>+$5 for <a href="https://ears.y2k.my/">Ears Mod</a> features</li>
+						</ul>
+					</li>
+					<li>Delivered as .png file</li>
+					<li>Canvas Size 64 x 64</li>
+					<li>Meant for Minecraft Java Edition</li>
+				</ul>
+				<label for="minecraft-toggle">Toggle the Minecraft Skin Viewer</label><input id="minecraft-toggle" type="checkbox" onclick="ToggleMinecraftSkinViewer()">
+				<span class="minecraft-font"> Show Animated Skins </span>
+				<script>function ToggleMinecraftSkinViewer(){ToggleBetween(document.getElementById("minecraft-toggle"),document.getElementById('minecraft-viewer'),document.getElementById('minecraft-rendered'));}ToggleMinecraftSkinViewer();</script>
 			</div>
 		</div>
 		<div class="showcase">
@@ -185,7 +315,6 @@
 						<ul>
 							<li>Programming</li>
 							<li>Game Modding</li>
-							<li>Minecraft Skins</li>
 							<li>Illustration</li>
 							<li>3D Modelling</li>
 							<li>Video Editing</li>
