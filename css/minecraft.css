@@ -115,6 +115,18 @@
 	text-shadow: 1px 1px 0 #261731;
 }
 
+.minecraft-background {
+	background-size: 64px;
+	image-rendering: pixelated;
+	background-image: var(--minecraft-bg);
+}
+html[data-theme='light'] {
+	--minecraft-bg: url('/resources/minecraft/bg_light.png');
+}
+html[data-theme='dark'] {
+	--minecraft-bg:url('/resources/minecraft/bg_dark.png');
+}
+
 .minecraft-skin-container {
 	width:300px;
 }
