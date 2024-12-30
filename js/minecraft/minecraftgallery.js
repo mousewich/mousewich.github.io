@@ -68,7 +68,7 @@ class MinecraftGallery {
 			zoom: 0.7
 		});
 		this.loadSkinByIndex(0);
-		this.#skinViewer.animation = new skinview3d.WalkingAnimation();
+		this.#skinViewer.animation = new skinview3d.IdleAnimation();
 	}
 	loadSkin(skin) {
 		//Load string skin

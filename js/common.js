@@ -15,7 +15,7 @@ function ToggleHideShow(x) {
 	if (x.className.indexOf(" show") === -1) x.className += " show";
 	else x.className = x.className.replace(" show", "");
 }
-function MakeGallery(id, items) {
+function MakeGalleryParent(id, items, func) {
 	let parent = document.getElementById(id);
 	if (items.length < 1) return;
 	//Indicators
@@ -38,14 +38,8 @@ function MakeGallery(id, items) {
 		let carouselItem = document.createElement("div");
 		carouselItem.className = "item";
 		if (i === 0) carouselItem.className += " active";
-		let img = document.createElement("img");
-		img.src = items[i].src;
-		img.alt = items[i].alt;
-		if (items[i]['allowRightClick'] == null) {
-			img.className = "no-save-img";
-			img.oncontextmenu = "return false;";
-		}
-		carouselItem.appendChild(img);
+		let innerItem = func(items[i]);
+		carouselItem.appendChild(innerItem);
 		wrapper.appendChild(carouselItem);
 	}
 	parent.appendChild(wrapper);
@@ -73,6 +67,30 @@ function MakeGallery(id, items) {
 		parent.appendChild(rightControl);
 	}
 	$("#" + id).carousel("pause")
+}
+function MakeGallery(id, items) {
+	MakeGalleryParent(id, items, function (item) {
+		let img = document.createElement("img");
+		img.src = item.src;
+		img.alt = item.alt;
+		if (item['allowRightClick'] == null) {
+			img.className = "no-save-img";
+			img.oncontextmenu = "return false;";
+		}
+		return img;
+	})
+}
+function MakeModelGallery(id, items) {
+	MakeGalleryParent(id, items, function (item) {
+		let modelviewer = document.createElement("model-viewer");
+		modelviewer.src = item.src;
+		modelviewer.poster = item.poster;
+		modelviewer.alt = item.alt;
+		modelviewer.setAttribute('camera-controls', '');
+		modelviewer['touch-action'] = "pan-y";
+		console.log(modelviewer);
+		return modelviewer;
+	})
 }
 
 function ToggleBetween(checkbox, first, second) {

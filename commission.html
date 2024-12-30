@@ -31,8 +31,7 @@
 	<script src="/js/jquery/jquery.js"></script>
 	<script src="/js/bootstrap/bootstrap.js"></script>
 	<script src="/js/common.js"></script>
-	<script src="/js/minecraft/minecraftgallery.js"></script>
-	<script src="js/minecraft/skinview3d/skinview3d.bundle.js"></script>
+	<script type="module" src="/js/modelviewer/model-viewer.js"></script>
 </head>
 <body>
 <!-- Header -->
@@ -250,6 +249,110 @@
 			</div>
 		</div>
 	</div>
+	<h1>Minecraft Commissions</h1>W
+	<div class="showcase-group">
+		<div class="showcase" style="background-image:var(--minecraft-bg);background-size:64px;image-rendering:pixelated;">
+			<div class="commission-gallery">
+				<div id="minecraft-skins-" class="carousel slide">
+					<script>
+						MakeModelGallery("minecraft-skins-", [
+							{
+								src: "/resources/img/commission/minecraft_skin/model_dovewich.gltf",
+								poster: "/resources/img/commission/minecraft_skin/render_dovewich.png",
+								alt: ""
+							},
+							{
+								src: "/resources/img/commission/minecraft_skin/model_mousewich.gltf",
+								poster: "/resources/img/commission/minecraft_skin/render_mousewich.png",
+								alt: ""
+							},
+							{
+								src: "/resources/img/commission/minecraft_skin/model_haven_smp_soleil.gltf",
+								poster: "/resources/img/commission/minecraft_skin/render_haven_smp_soleil.png",
+								alt: ""
+							},
+							{
+								src: "/resources/img/commission/minecraft_skin/model_haven_smp_ferris.gltf",
+								poster: "/resources/img/commission/minecraft_skin/render_haven_smp_ferris.png",
+								alt: ""
+							},
+							{
+								src: "/resources/img/commission/minecraft_skin/model_ryft_smp_gubby.gltf",
+								poster: "/resources/img/commission/minecraft_skin/render_ryft_smp_gubby.png",
+								alt: ""
+							},
+							{
+								src: "/resources/img/commission/minecraft_skin/model_ryft_smp_eldora.gltf",
+								poster: "/resources/img/commission/minecraft_skin/render_ryft_smp_eldora.png",
+								alt: ""
+							}
+						])
+					</script>
+				</div>
+			</div>
+			<div class="commission-description minecraft-font">
+				<h2>Minecraft Skins</h2>
+				<ul>
+					<li>Base Price: $20 USD
+						<ul>
+							<li>+$5 for custom Cape / Elytra</li>
+							<li>+$5 for <a href="https://ears.y2k.my/">Ears Mod</a> features</li>
+						</ul>
+					</li>
+					<li>Delivered as .png file</li>
+					<li>Canvas Size 64 x 64</li>
+					<li>Meant for Minecraft Java Edition</li>
+				</ul>
+			</div>
+		</div>
+		<div class="showcase" style="background-image:var(--minecraft-bg);background-size:64px;image-rendering:pixelated;">
+			<div class="commission-gallery">
+				<div id="minecraft-creature-models-" class="carousel slide">
+					<script>
+						MakeModelGallery("minecraft-creature-models-", [
+							{
+								src: "/resources/img/commission/minecraft_model/pigeon.gltf",
+								poster: "/resources/img/commission/minecraft_model/render_pigeon.png",
+								alt: "A 3D model of a pigeon in the Minecraft style"
+							},
+							{
+								src: "/resources/img/commission/minecraft_model/piranha.gltf",
+								poster: "/resources/img/commission/minecraft_model/render_piranha.png",
+								alt: "A 3D model of a piranha in the Minecraft style"
+							},
+							{
+								src: "/resources/img/commission/minecraft_model/manul.gltf",
+								poster: "/resources/img/commission/minecraft_model/render_manul.png",
+								alt: "A 3D model of a pallas's cat in the Minecraft style"
+							},
+							{
+								src: "/resources/img/commission/minecraft_model/vexune_miku.gltf",
+								poster: "/resources/img/commission/minecraft_model/render_vexune_miku.png",
+								alt: "A 3D model of a vex from Minecraft dressed like Hatsune Miku in the Minecraft style"
+							}
+						])
+					</script>
+				</div>
+			</div>
+			<div class="commission-description minecraft-font">
+				<h2>Minecraft-Inspired Creature Models</h2>
+				<ul>
+					<li>Price depends on complexity
+						<ul>
+							<li>Please reach out for a custom quote</li>
+						</ul>
+					</li>
+					<li>Delivered as
+						<ul>
+							<li>1 .bbmodel file for <a href="https://www.blockbench.net/">Blockbench</a></li>
+							<li>1 .png texture file</li>
+						</ul>
+					</li>
+					<li>Canvas and Model Sizes vary</li>
+				</ul>
+			</div>
+		</div>
+	</div>
 	<h1>Other Commissions</h1>
 	<div class="showcase-group">
 		<div class="showcase">
@@ -276,79 +379,6 @@
 					<li>Delivered as .png files</li>
 					<li>Canvas Size varies</li>
 				</ul>
-			</div>
-		</div>
-		<div class="showcase" style="background-image:var(--minecraft-bg);background-size:64px;image-rendering:pixelated;">
-			<div class="commission-gallery">
-				<div id="minecraft-viewer" class="carousel slide" hidden="hidden">
-					<script>
-						MakeMinecraftSkinGallery("minecraft-viewer", [
-							{
-								"skin": "/resources/img/commission/minecraft_skin/skin_dovewich.png",
-								"slim": true
-							},
-							{
-								"skin": "/resources/img/commission/minecraft_skin/skin_mousewich.png",
-								"slim": true
-							},
-							"/resources/img/commission/minecraft_skin/skin_haven_smp_soleil.png",
-							"/resources/img/commission/minecraft_skin/skin_haven_smp_ferris.png",
-							"/resources/img/commission/minecraft_skin/skin_ryft_smp_gubby.png",
-							{
-								"skin": "/resources/img/commission/minecraft_skin/skin_ryft_smp_eldora.png",
-								"slim": true
-							}
-						])
-						MakeGallery
-					</script>
-				</div>
-				<div id="minecraft-rendered" class="carousel slide">
-					<script>
-						MakeGallery("minecraft-rendered", [
-							{
-								"src": "/resources/img/commission/minecraft_skin/render_dovewich.png",
-								"alt": ""
-							},
-							{
-								"src": "/resources/img/commission/minecraft_skin/render_mousewich.png",
-								"alt": ""
-							},
-							{
-								"src": "/resources/img/commission/minecraft_skin/render_haven_smp_soleil.png",
-								"alt": ""
-							},
-							{
-								"src": "/resources/img/commission/minecraft_skin/render_haven_smp_ferris.png",
-								"alt": ""
-							},
-							{
-								"src": "/resources/img/commission/minecraft_skin/render_ryft_smp_gubby.png",
-								"alt": ""
-							},
-							{
-								"src": "/resources/img/commission/minecraft_skin/render_ryft_smp_eldora.png",
-								"alt": ""
-							}
-						])
-					</script>
-				</div>
-			</div>
-			<div class="commission-description minecraft-font">
-				<h2>Minecraft Skins</h2>
-				<ul>
-					<li>Base Price: $20 USD
-						<ul>
-							<li>+$5 for custom Cape / Elytra</li>
-							<li>+$5 for <a href="https://ears.y2k.my/">Ears Mod</a> features</li>
-						</ul>
-					</li>
-					<li>Delivered as .png file</li>
-					<li>Canvas Size 64 x 64</li>
-					<li>Meant for Minecraft Java Edition</li>
-				</ul>
-				<input id="minecraft-toggle" type="checkbox" onclick="ToggleMinecraftSkinViewer()">
-				<label for="minecraft-toggle">Show Animated Skins</label>
-				<script>function ToggleMinecraftSkinViewer(){ToggleBetween(document.getElementById("minecraft-toggle"),document.getElementById('minecraft-viewer'),document.getElementById('minecraft-rendered'));}ToggleMinecraftSkinViewer();</script>
 			</div>
 		</div>
 		<div class="showcase">
@@ -380,6 +410,7 @@
 			</div>
 		</div>
 	</div>
+
 	<hr id="tos">
 	<h1>Terms of Service</h1>
 	<p style="text-align:center">Last Revised June 29, 2024</p>
