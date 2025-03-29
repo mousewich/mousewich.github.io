@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<!-- HTML Meta Tags -->
+	<title>Home</title>
+	<meta name="description" content="">
+	<!-- Open Graph Meta Tags -->
+	<meta property="og:title" content="Home">
+	<meta property="og:url" content="https://www.wich.fun/">
+	<meta property="og:type" content="website">
+	<meta property="og:description" content="">
+	<meta property="og:image" content="">
+	<!-- Twitter Meta Tags -->
+	<meta name="twitter:title" content="Home">
+	<meta property="twitter:url" content="https://www.wich.fun/">
+	<meta name="twitter:card" content="summary_large_image">
+	<meta property="twitter:domain" content="wich.fun">
+	<meta name="twitter:description" content="">
+	<meta name="twitter:image" content="">
+	<!-- Manifest -->
+	<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+	<link rel="manifest" href="/site.webmanifest">
+	<!-- Style and Scripts -->
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="/css/cascadia-code.css">
+	<link rel="stylesheet" href="/css/styles.css">
+	<script src="/js/common.js"></script>
+</head>
+<body>
+<!-- Header -->
+<header id="header">
+	<div class="navBar">
+		<div class="hamburgerMenu navSticker hide-large" onclick="ToggleNavDropdown()" title="Toggle Navigation Menu">≡</div>
+		<button id="darkModeToggle" class="darkModeToggle navSticker" type="button" onclick="ToggleDarkMode()">
+			<span class="display-light display-none"> <img src="/resources/icon/moon.svg" alt="A moon icon"> </span>
+			<span class="display-dark display-none"> <img src="/resources/icon/sun.svg" alt="A sun icon"> </span>
+		</button>
+		<a href="/index.html" class="navSticker">Home</a>
+		<a href="/commission.html" class="navButton">Commissions</a>
+	</div>
+	<!-- Navbar on small screens -->
+	<div id="navDropdown" class="navDropdown hide-large">
+		<a href="/commission.html" class="navButton">Commissions</a>
+	</div>
+</header>
+<!-- Content -->
+<div class="content" style="text-align:center">
+	<h1>Discord Timestamps</h1>
+	<p style="font-size:8pt">(for when you don't want to search for "discord timestamps" again)</p>
+	<div>
+		<label for="TimestampDate">Date</label>
+		<input type="date" id="TimestampDate" onchange="UpdateDateTime()"/>
+		<label for="TimestampTime">Time</label>
+		<input type="time" id="TimestampTime" onchange="UpdateDateTime()"/>
+		<label for="TimestampType">Format</label>
+		<select id="TimestampType" onchange="UpdateDateTime()">
+			<option value="t">Time</option>
+			<option value="T">Time with Seconds</option>
+			<option value="d">Short Date</option>
+			<option value="D">Long Date</option>
+			<option value="f" selected>Date and Time</option>
+			<option value="F">Long Date and Time</option>
+			<option value="R">Relative</option>
+		</select>
+		<button title="Reset Timestamp" onclick="ResetDateTime()">Reset</button>
+	</div>
+	<div>
+		<label for="TimestampOutput">Output</label>
+		<input type="text" value="" id="TimestampOutput" disabled size="16"/>
+		<button title="Copy to Clipboard" onclick="UpdateDateTime(); navigator.clipboard.writeText(document.getElementById('TimestampOutput').value)" class="text-icon">
+			<img src="/resources/icon/copy.svg" alt="Copy to Clipboard" style="height:12px;width:12px;">
+		</button>
+		<span id="TimestampPreview"></span>
+	</div>
+	<br>
+	<script>
+		const dateInput = document.getElementById("TimestampDate");
+		const timeInput = document.getElementById("TimestampTime");
+		function UpdateDateTime() {
+			const selectedDate = new Date(dateInput.valueAsNumber + timeInput.valueAsNumber + new Date(dateInput.valueAsNumber + timeInput.valueAsNumber).getTimezoneOffset() * 60000);
+			const ts = selectedDate.getTime().toString();
+			const type = document.getElementById("TimestampType");
+			const output = document.getElementById("TimestampOutput");
+			output.value = `<t:${ts.substring(0, ts.length - 3)}:${type.value}>`;
+			output.size = output.value.length;
+			const formats = {
+				't': { timeStyle: 'short' },
+				'T': { timeStyle: 'medium' },
+				'd': { dateStyle: 'short' },
+				'D': { dateStyle: 'long' },
+				'f': { dateStyle: 'long', timeStyle: 'short' },
+				'F': { dateStyle: 'full', timeStyle: 'short' },
+				'R': { style: 'long', numeric: 'auto' },
+			};
+			const timestampPreview = document.getElementById("TimestampPreview");
+			if (type.value === 'R') {
+				let format;
+				const difference = -((new Date().getTime() - selectedDate.getTime()) / 1000) | 0;
+				const absDiff = Math.abs(difference);
+				if (absDiff > 25920000) format = { duration: Math.round(difference / 31536000), unit: 'years' };
+				else if (absDiff > 2160000) format = { duration: Math.round(difference / 2592000), unit: 'months' };
+				else if (absDiff > 75600) format = { duration: Math.round(difference / 86400), unit: 'days' };
+				else if (absDiff > 2640) format = { duration: Math.round(difference / 3600), unit: 'hours' };
+				else if (absDiff > 30) format = { duration: Math.round(difference / 60), unit: 'minutes' };
+				else format = { duration: difference, unit: 'seconds' };
+				timestampPreview.textContent = new Intl.RelativeTimeFormat(navigator.language || 'en', formats[type.value] || {}).format(format.duration, format.unit);
+			}
+			else timestampPreview.textContent = new Intl.DateTimeFormat(navigator.language || 'en', formats[type.value] || {}).format(selectedDate);
+		}
+		function ResetDateTime() {
+			const now = new Date();
+			dateInput.value = `${now.getFullYear()}-${(now.getMonth()+1).toString().padStart(2, '0')}-${now.getDate().toString().padStart(2, '0')}`;
+			timeInput.value = `${now.getHours().toString().padStart(2, '0')}:${now.getMinutes().toString().padStart(2, '0')}`;
+			UpdateDateTime();
+		}
+		if (window.addEventListener) window.addEventListener('load', ResetDateTime);
+		else window.attachEvent('onload', ResetDateTime);
+	</script>
+</div>
+<!-- Footer -->
+<footer id="footer">
+	<a class="social-icon" href="/twitch.html"><img src="/resources/icon/twitch.svg" alt="Twitch glitch logo"></a>
+	<a class="social-icon" href="/youtube.html"><img src="/resources/icon/youtube.svg" alt="YouTube play button logo"></a>
+	<a class="social-icon" href="/twitter.html"><img src="/resources/icon/twitter.svg" alt="Twitter logo"></a>
+	<a class="social-icon" href="/bluesky.html"><img src="/resources/icon/bluesky.svg" alt="Bluesky logo"></a>
+	<a class="social-icon" href="/tumblr.html"><img src="/resources/icon/tumblr.svg" alt="Tumblr t logo"></a>
+	<a class="social-icon" href="/ko-fi.html"><img src="/resources/icon/ko-fi.svg" alt="Ko-fi logo"></a>
+	<a class="social-icon" href="mailto:girlboss@wich.fun"><img src="/resources/icon/email.svg" alt="An email icon"></a>
+	<p class="copyright">Copyright &copy<script>document.write(new Date().getFullYear().toString())</script> dovewich</p>
+</footer>
+</body>
+</html>
+<style>
+</style>
