@@ -1,12 +1,21 @@
+//Fancy Display
+const storedThemeFancy = localStorage.getItem('theme-fancy') || "fancy";
+if (storedThemeFancy) document.documentElement.setAttribute("data-theme-fancy", storedThemeFancy);
 //Dark Mode
 const storedTheme = localStorage.getItem('theme') || (window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
-if (storedTheme) document.documentElement.setAttribute("data-theme", storedTheme)
+if (storedTheme) document.documentElement.setAttribute("data-theme", storedTheme);
 
+function ToggleFancy() {
+	ToggleMode("data-theme-fancy", "theme-fancy", "fancy", "simple");
+}
 function ToggleDarkMode() {
-	let targetTheme = "light";
-	if (document.documentElement.getAttribute("data-theme") === "light") targetTheme = "dark";
-	document.documentElement.setAttribute("data-theme", targetTheme)
-	localStorage.setItem('theme', targetTheme);
+	ToggleMode("data-theme", "theme", "light", "dark");
+}
+function ToggleMode(target, localTarget, on, off) {
+	let targetTheme = on;
+	if (document.documentElement.getAttribute(target) === on) targetTheme = off;
+	document.documentElement.setAttribute(target, targetTheme)
+	localStorage.setItem(localTarget, targetTheme);
 }
 function ToggleNavDropdown() {
 	ToggleHideShow(document.getElementById("navDropdown"));
